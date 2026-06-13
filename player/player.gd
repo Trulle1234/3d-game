@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
 @onready var camera: Camera3D = $Camera3D
+@onready var marker: Marker3D = $Camera3D/Marker3D
+@onready var timer: Timer = $ShootTimer
+
+const BULLET = preload("uid://bdddr4ndq3ada")
 
 const GRAVITY = 20
 const SPEED = 5.5
@@ -35,3 +39,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_STRENGTH
 	
 	move_and_slide()
+	
+	if Input.is_action_pressed("shoot") and timer.is_stopped():
+		shoot()
+
+func shoot():
+	var new_bullet = BULLET.instantiate()
+	marker.add_child(new_bullet)
+	
+	new_bullet.global_transform = marker.global_transform
+	
+	timer.start()

@@ -17,10 +17,10 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="GunModel" parent="Camera3D" unique_id=1153163126 instance=ExtResource("2_yw30f")]
-transform = Transform3D(-0.29934296, -0.0030906945, -0.019601803, -0.004696351, 0.29895428, 0.024581557, 0.01928023, 0.024834571, -0.298348, 0.3244815, -0.1254319, -0.4246141)
+transform = Transform3D(-0.29201365, 0.00085699366, -0.06875544, -0.004913949, 0.2989496, 0.024596423, 0.06858497, 0.025067836, -0.29097718, 0.3244815, -0.1254319, -0.4246141)
 
-[node name="Marker3D" type="Marker3D" parent="Camera3D" unique_id=1053698617]
-transform = Transform3D(-0.29981723, 0, -0.0104698315, 0, 0.29999995, 0, 0.010469816, 0, -0.29981768, 0.3099137, -0.06936574, -0.6977595)
+[node name="Marker3D" type="Marker3D" parent="Camera3D/GunModel" unique_id=1053698617]
+transform = Transform3D(1, 1.1175871e-08, -1.1920929e-07, -1.8626451e-09, 1, -8.940697e-08, 4.4703484e-08, 0, 1.0000013, 0.007015705, 0.03606987, 0.63036144)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1143695859]
 anchors_preset = 8
@@ -38,5 +38,5 @@ texture = ExtResource("3_g1dw6")
 expand_mode = 1
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1476296175]
-wait_time = 0.15
+wait_time = 0.2
 one_shot = true
