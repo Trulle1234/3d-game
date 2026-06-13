@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cdcq0pplhc5d7"]
+
+[ext_resource type="PackedScene" uid="uid://rr1oj7b5uo0d" path="res://player/projectile/projectile_model.glb" id="1_i1cnd"]
+
+[node name="BulletModel" unique_id=1688946889 instance=ExtResource("1_i1cnd")]
