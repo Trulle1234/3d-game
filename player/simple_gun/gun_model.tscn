@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://do044mntw52m1"]
+
+[ext_resource type="PackedScene" uid="uid://bm07uxtruq7w5" path="res://player/simple_gun/gun_model.glb" id="1_5nxhh"]
+
+[node name="gun_model" unique_id=1153163126 instance=ExtResource("1_5nxhh")]
+
+[node name="BlueGun" parent="." index="0" unique_id=1470990329]
+cast_shadow = 0

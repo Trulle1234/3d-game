@@ -1,5 +1,16 @@
 [gd_scene format=3 uid="uid://cdcq0pplhc5d7"]
 
 [ext_resource type="PackedScene" uid="uid://rr1oj7b5uo0d" path="res://player/projectile/projectile_model.glb" id="1_i1cnd"]
+[ext_resource type="Shader" uid="uid://b4wc5wsyakc0a" path="res://player/projectile/projectile.gdshader" id="2_j2drh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lyji"]
+render_priority = 0
+shader = ExtResource("2_j2drh")
+shader_parameter/tail_color = Color(1, 0.6647756, 0.14187017, 1)
+shader_parameter/head_color = Color(0.98896474, 0.37849444, 0.109783344, 1)
 
 [node name="BulletModel" unique_id=1688946889 instance=ExtResource("1_i1cnd")]
+
+[node name="Projectile" parent="." index="0" unique_id=1744844734]
+material_override = SubResource("ShaderMaterial_2lyji")
+cast_shadow = 0
