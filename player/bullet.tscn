@@ -15,3 +15,5 @@ shape = SubResource("SphereShape3D_j40gx")
 
 [node name="BulletModel" parent="." unique_id=1688946889 instance=ExtResource("1_1y6ct")]
 transform = Transform3D(-3.934025e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.934025e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
