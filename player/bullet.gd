@@ -12,6 +12,6 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
-	queue_free()
 	if body.has_method("take_damage"):
 		body.take_damage()
+	queue_free()

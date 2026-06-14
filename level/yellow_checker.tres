@@ -1,8 +1,17 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://o2s2q2x825t8"]
 
 [ext_resource type="Texture2D" uid="uid://c07m64ud2bxk" path="res://level/checkboard.png" id="1_w7s6t"]
+[ext_resource type="Shader" uid="uid://k7vx6hwnwx88" path="res://outline.gdshader" id="2_sgyto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n17n"]
+render_priority = 0
+shader = ExtResource("2_sgyto")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/constant_width = true
 
 [resource]
+next_pass = SubResource("ShaderMaterial_0n17n")
 albedo_color = Color(0.91, 0.6066667, 0, 1)
 albedo_texture = ExtResource("1_w7s6t")
 uv1_triplanar = true

@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://do044mntw52m1"]
 
 [ext_resource type="PackedScene" uid="uid://bm07uxtruq7w5" path="res://player/simple_gun/gun_model.glb" id="1_5nxhh"]
+[ext_resource type="Texture2D" uid="uid://d3imk6nylplfv" path="res://player/simple_gun/gun_model_gun_palette.png" id="2_okfd4"]
+[ext_resource type="Shader" uid="uid://k7vx6hwnwx88" path="res://outline.gdshader" id="3_2r6jg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mck35"]
+render_priority = 0
+shader = ExtResource("3_2r6jg")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/constant_width = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpp5o"]
+next_pass = SubResource("ShaderMaterial_mck35")
+albedo_texture = ExtResource("2_okfd4")
+roughness = 0.5
 
 [node name="gun_model" unique_id=1153163126 instance=ExtResource("1_5nxhh")]
 
 [node name="BlueGun" parent="." index="0" unique_id=1470990329]
+material_override = SubResource("StandardMaterial3D_qpp5o")
 cast_shadow = 0
