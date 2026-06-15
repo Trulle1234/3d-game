@@ -3,26 +3,66 @@
 [ext_resource type="Script" uid="uid://bn4xt4sd0iktc" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://do044mntw52m1" path="res://player/simple_gun/gun_model.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://o8n1viybhvsn" path="res://player/reticle.png" id="3_g1dw6"]
-[ext_resource type="AudioStream" uid="uid://cqhfa734dks3d" path="res://player/gun_shoot.wav" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://daowevtfx7n5l" path="res://player/shoot.wav" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw30f"]
+radius = 0.5209961
+
+[sub_resource type="Theme" id="Theme_yw30f"]
+default_font_size = 68
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 10
+ProgressBar/styles/background = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjkh3"]
+bg_color = Color(0.9098039, 0.60784316, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw30f"]
+bg_color = Color(0.37664002, 0.88, 0.19360003, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="Player" type="CharacterBody3D" unique_id=1951843773]
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_rkbax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1719900229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_kqu6x")
 
+[node name="Hitbox" type="Area3D" parent="." unique_id=257295392]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1802817248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yw30f")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1439892958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="GunModel" parent="Camera3D" unique_id=1153163126 instance=ExtResource("2_yw30f")]
-transform = Transform3D(-0.29934296, -0.0030906945, -0.019601803, -0.004696351, 0.29895428, 0.024581557, 0.01928023, 0.024834571, -0.298348, 0.3244815, -0.1254319, -0.4246141)
-
 [node name="Marker3D" type="Marker3D" parent="Camera3D" unique_id=1053698617]
 transform = Transform3D(-0.29981723, 0, -0.0104698315, 0, 0.29999995, 0, 0.010469816, 0, -0.29981768, 0.3099137, -0.06936574, -0.6977595)
+
+[node name="GunModel" parent="Camera3D" unique_id=1153163126 instance=ExtResource("2_yw30f")]
+transform = Transform3D(-0.29934296, -0.0030906945, -0.019601803, -0.004696351, 0.29895428, 0.024581557, 0.01928023, 0.024834571, -0.298348, 0.3244815, -0.1254319, -0.4246141)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1143695859]
 anchors_preset = 8
@@ -39,10 +79,31 @@ grow_vertical = 2
 texture = ExtResource("3_g1dw6")
 expand_mode = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=333006383]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.0
+offset_top = 81.0
+offset_right = 413.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme = SubResource("Theme_yw30f")
+theme_override_styles/background = SubResource("StyleBoxFlat_qjkh3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yw30f")
+max_value = 20.0
+step = 1.0
+value = 20.0
+show_percentage = false
+
 [node name="ShootTimer" type="Timer" parent="." unique_id=1476296175]
 wait_time = 0.15
 one_shot = true
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=2100008405]
 stream = ExtResource("4_yw30f")
-volume_db = 12.0
+volume_db = -5.0
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=603564720]
+wait_time = 0.3
+one_shot = true

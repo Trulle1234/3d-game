@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bv1t1l6vckbar" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://l2fytpak550u" path="res://mob/bat/bat_model.tscn" id="1_7b8ug"]
-[ext_resource type="AudioStream" uid="uid://c7oqr6gjevsqk" path="res://mob/mob_take_damage.wav" id="3_mixeo"]
-[ext_resource type="AudioStream" uid="uid://dxfq4jfacv3ps" path="res://mob/mob_ko.wav" id="4_jkfaf"]
+[ext_resource type="AudioStream" uid="uid://eu68u6nhujbn" path="res://mob/spawner/mob_hit.wav" id="3_mixeo"]
+[ext_resource type="AudioStream" uid="uid://xy2a61uejbgu" path="res://mob/spawner/mob_death.wav" id="4_mixeo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jlfs"]
-radius = 0.44091797
-height = 1.854248
+radius = 0.36572266
+height = 1.5722656
 
-[node name="Mob" type="RigidBody3D" unique_id=1968708622]
+[node name="Mob" type="RigidBody3D" unique_id=1968708622 groups=["mobs"]]
 collision_layer = 2
+collision_mask = 3
 gravity_scale = 0.0
 script = ExtResource("1_6jlfs")
 
@@ -26,12 +27,12 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="." unique_id=454083408]
 stream = ExtResource("3_mixeo")
-volume_db = -20.0
-max_db = -10.0
+volume_db = -8.0
+max_db = -4.0
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=678017150]
-stream = ExtResource("4_jkfaf")
-volume_db = -10.0
-max_db = -5.0
+stream = ExtResource("4_mixeo")
+volume_db = -5.0
+max_db = -2.0
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

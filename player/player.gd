@@ -2,14 +2,19 @@ extends CharacterBody3D
 
 @onready var camera: Camera3D = $Camera3D
 @onready var marker: Marker3D = $Camera3D/Marker3D
-@onready var timer: Timer = $ShootTimer
+@onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
+@onready var hitbox: Area3D = $Hitbox
+@onready var damage_timer: Timer = $DamageTimer
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 const BULLET = preload("uid://bdddr4ndq3ada")
 
 const GRAVITY = 20
 const SPEED = 5.5
 const JUMP_STRENGTH = 8
+
+var health = 20
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -38,14 +43,25 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_STRENGTH
+		
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("shoot") and timer.is_stopped():
+	if Input.is_action_pressed("shoot") and shoot_timer.is_stopped():
 		shoot()
+
+	if damage_timer.is_stopped():
+		var overlapping_bodies = hitbox.get_overlapping_bodies()
+		for body in overlapping_bodies:
+			if body.is_in_group("mobs") and not body.health <= 0:
+				take_damage(1)
+				damage_timer.start() 
+				break
 	
 func shoot():
-	shoot_sound.pitch_scale = randf_range(0.9, 1)
+	shoot_sound.pitch_scale = randf_range(0.9, 1.1)
 	shoot_sound.play()
 	
 	var new_bullet = BULLET.instantiate()
@@ -53,4 +69,11 @@ func shoot():
 	
 	new_bullet.global_transform = marker.global_transform
 	
-	timer.start()
+	shoot_timer.start()
+
+func take_damage(ammount):
+	health -= ammount
+	progress_bar.value = health
+	
+	if health <= 0:
+		get_tree().reload_current_scene.call_deferred()

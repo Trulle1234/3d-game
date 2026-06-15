@@ -24,28 +24,15 @@ float dithering_pattern(ivec2 fragcoord) {
 }
 
 float reduce_color(float raw, float dither, int depth) {
-	float div = 1.0 / float(depth);
-	float val = 0.0;
-	int i = 0;
+	float scaled = raw * float(depth);
+	float base = floor(scaled);
+	float fraction = scaled - base;
 
-	while (i <= MAXCOLORS) {
-		if (raw > div * float(i + 1)) {
-			i = i + 1;
-			continue;
-		}
-
-		if (raw * float(depth) - float(i) <= dither * 0.999) {
-			val = div * float(i);
-		} else {
-			val = div * float(i + 1);
-		}
-
-		return val;
-
-		i = i + 1;
+	if (fraction > dither) {
+		base += 1.0;
 	}
 
-	return val;
+	return clamp(base / float(depth), 0.0, 1.0);
 }
 
 void fragment() {

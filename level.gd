@@ -7,7 +7,7 @@ var score = 0
 
 func _ready() -> void:
 	do_poof(player.global_position + Vector3(0, 1, 0))
-
+		
 func add_score():
 	score += 1
 	label.text = "Score: " + str(score)

@@ -37,7 +37,7 @@ shader_parameter/opacity = 1.0
 shader = ExtResource("6_1ainy")
 shader_parameter/enabled = true
 shader_parameter/dithering = true
-shader_parameter/colors = 8
+shader_parameter/colors = 12
 shader_parameter/dither_size = 3
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f2txt"]
@@ -67,6 +67,7 @@ text = "Score: 0"
 label_settings = SubResource("LabelSettings_0b4ue")
 
 [node name="CanvasLayer1" type="CanvasLayer" parent="." unique_id=921191335]
+layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer1" unique_id=56116121]
 material = SubResource("ShaderMaterial_km5ld")
@@ -78,7 +79,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1400988907]
-layer = 2
+layer = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1649508229]
 material = SubResource("ShaderMaterial_n6hdu")
@@ -98,60 +99,70 @@ transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.
 [node name="Big1" type="CSGBox3D" parent="Platforms" unique_id=620366279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 use_collision = true
+collision_layer = 2
 size = Vector3(12, 100, 12)
 material = ExtResource("2_oi3di")
 
 [node name="Big2" type="CSGBox3D" parent="Platforms" unique_id=1569821654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -50, 0)
 use_collision = true
+collision_layer = 2
 size = Vector3(6, 100, 8)
 material = ExtResource("2_oi3di")
 
 [node name="Big3" type="CSGBox3D" parent="Platforms" unique_id=408024177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, -50, 21)
 use_collision = true
+collision_layer = 2
 size = Vector3(11, 100, 8)
 material = ExtResource("2_oi3di")
 
 [node name="Big4" type="CSGBox3D" parent="Platforms" unique_id=23697446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -50, 23)
 use_collision = true
+collision_layer = 2
 size = Vector3(7, 100, 7)
 material = ExtResource("2_oi3di")
 
 [node name="Floating1" type="CSGBox3D" parent="Platforms" unique_id=607548251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -0.5, 0)
 use_collision = true
+collision_layer = 2
 size = Vector3(5, 1, 5)
 material = ExtResource("3_0b4ue")
 
 [node name="Floating2" type="CSGBox3D" parent="Platforms" unique_id=1410542792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -0.5, 10.5)
 use_collision = true
+collision_layer = 2
 size = Vector3(2, 1, 8)
 material = ExtResource("3_0b4ue")
 
 [node name="Floating3" type="CSGBox3D" parent="Platforms" unique_id=2104465405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -0.5, 17.5)
 use_collision = true
+collision_layer = 2
 size = Vector3(2, 1, 2)
 material = ExtResource("3_0b4ue")
 
 [node name="Pillar1" type="CSGBox3D" parent="Platforms" unique_id=988528483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -50, 10)
 use_collision = true
+collision_layer = 2
 size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Pillar2" type="CSGBox3D" parent="Platforms" unique_id=521603640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -50, 13)
 use_collision = true
+collision_layer = 2
 size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Pillar3" type="CSGBox3D" parent="Platforms" unique_id=1479985297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -50, 10)
 use_collision = true
+collision_layer = 2
 size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
