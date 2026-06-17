@@ -14,13 +14,14 @@ background_color = Color(0.19074887, 0.61400354, 0.87095726, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.78219545, 0.74988824, 0.7159703, 1)
 tonemap_mode = 2
-tonemap_exposure = 1.03
-tonemap_white = 1.76
+tonemap_exposure = 0.8
+tonemap_white = 1.54
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.22756076, 0.5364027, 0.82748336, 1)
-fog_light_energy = 1.5
+fog_light_color = Color(0.2203885, 0.5747292, 0.89419174, 1)
+fog_light_energy = 1.84
 fog_density = 0.0
+fog_height = -1.0
 fog_height_density = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_0b4ue"]
@@ -49,7 +50,7 @@ script = ExtResource("1_f2txt")
 environment = SubResource("Environment_u52ul")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=461697427]
-transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 10.873226, -3)
+transform = Transform3D(0.9987378, -0.04349774, -0.025113404, -7.1967063e-09, -0.5, 0.8660253, -0.050226808, -0.8649322, -0.49936903, -1, 10.873226, -2)
 shadow_enabled = true
 
 [node name="MobSpawner1" parent="." unique_id=701068754 instance=ExtResource("5_f2txt")]
@@ -103,6 +104,14 @@ collision_layer = 2
 size = Vector3(12, 100, 12)
 material = ExtResource("2_oi3di")
 
+[node name="Big5" type="CSGBox3D" parent="Platforms/Big1" unique_id=266061509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 36, 0)
+operation = 2
+use_collision = true
+collision_layer = 2
+size = Vector3(6, 3, 5)
+material = ExtResource("2_oi3di")
+
 [node name="Big2" type="CSGBox3D" parent="Platforms" unique_id=1569821654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -50, 0)
 use_collision = true
@@ -122,6 +131,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -50, 23)
 use_collision = true
 collision_layer = 2
 size = Vector3(7, 100, 7)
+material = ExtResource("2_oi3di")
+
+[node name="Pillar1" type="CSGBox3D" parent="Platforms" unique_id=988528483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -50, 10)
+use_collision = true
+collision_layer = 2
+size = Vector3(3, 100, 3)
+material = ExtResource("2_oi3di")
+
+[node name="Pillar2" type="CSGBox3D" parent="Platforms" unique_id=521603640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -50, 13)
+use_collision = true
+collision_layer = 2
+size = Vector3(3, 100, 3)
+material = ExtResource("2_oi3di")
+
+[node name="Pillar3" type="CSGBox3D" parent="Platforms" unique_id=1479985297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -50, 10)
+use_collision = true
+collision_layer = 2
+size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Floating1" type="CSGBox3D" parent="Platforms" unique_id=607548251]
@@ -144,27 +174,6 @@ use_collision = true
 collision_layer = 2
 size = Vector3(2, 1, 2)
 material = ExtResource("3_0b4ue")
-
-[node name="Pillar1" type="CSGBox3D" parent="Platforms" unique_id=988528483]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -50, 10)
-use_collision = true
-collision_layer = 2
-size = Vector3(3, 100, 3)
-material = ExtResource("2_oi3di")
-
-[node name="Pillar2" type="CSGBox3D" parent="Platforms" unique_id=521603640]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -50, 13)
-use_collision = true
-collision_layer = 2
-size = Vector3(3, 100, 3)
-material = ExtResource("2_oi3di")
-
-[node name="Pillar3" type="CSGBox3D" parent="Platforms" unique_id=1479985297]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -50, 10)
-use_collision = true
-collision_layer = 2
-size = Vector3(3, 100, 3)
-material = ExtResource("2_oi3di")
 
 [node name="KillPlane" type="Area3D" parent="." unique_id=1067029143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18, 0)

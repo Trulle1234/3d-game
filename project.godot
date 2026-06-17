@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="3D Game"
+config/name="3D Shooter"
 run/main_scene="uid://dcrfngqec7kml"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.3372549, 0.73333335, 0.9254902, 1)
+boot_splash/stretch_mode=4
 
 [audio]
 
@@ -80,3 +82,4 @@ shoot={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
