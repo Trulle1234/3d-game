@@ -40,6 +40,43 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="Animation" id="Animation_yw30f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+resource_name = "shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6k8r"]
+_data = {
+&"RESET": SubResource("Animation_yw30f"),
+&"shoot": SubResource("Animation_qjkh3")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=1951843773]
 collision_mask = 2
 script = ExtResource("1_rkbax")
@@ -76,6 +113,7 @@ offset_right = 36.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(36, 36)
 texture = ExtResource("3_g1dw6")
 expand_mode = 1
 
@@ -107,3 +145,6 @@ volume_db = -5.0
 [node name="DamageTimer" type="Timer" parent="." unique_id=603564720]
 wait_time = 0.3
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1275507644]
+libraries/ = SubResource("AnimationLibrary_g6k8r")

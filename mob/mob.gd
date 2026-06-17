@@ -13,17 +13,30 @@ signal health_zero
 var speed = randf_range(2, 4)
 var health = 4
 
+var last_player_floor_pos = 0
+
 func _physics_process(delta: float) -> void:
-	var dir = global_position.direction_to(player.global_position) 
-	dir.y = 0
+	var target_pos = player.global_position + Vector3(0, 1.2, 0)
+	if player.is_on_floor():
+		last_player_floor_pos = player.global_position.y
+	else:
+		target_pos.y = last_player_floor_pos + 1.2
+	
+	var dir = global_position.direction_to(target_pos)
 	
 	if dir.length_squared() < 0.001:
+		linear_velocity = Vector3.ZERO
 		return
 	
 	dir = dir.normalized()
 	linear_velocity = dir * speed
 	
-	model.global_basis = Basis.looking_at(-dir , Vector3.UP)
+	var look_dir = target_pos - global_position
+	look_dir.y = 0
+	
+	if look_dir.length_squared() > 0.001:
+		look_dir = look_dir.normalized()
+		model.global_basis = Basis.looking_at(-look_dir, Vector3.UP)
 
 func take_damage():
 	if health == 0:
@@ -31,7 +44,7 @@ func take_damage():
 	
 	hurt_sound.pitch_scale = randf_range(0.9, 1)
 	hurt_sound.play()
-
+	
 	model.hurt()
 	health -= 1
 	

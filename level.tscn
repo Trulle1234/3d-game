@@ -54,7 +54,7 @@ transform = Transform3D(0.9987378, -0.04349774, -0.025113404, -7.1967063e-09, -0
 shadow_enabled = true
 
 [node name="MobSpawner1" parent="." unique_id=701068754 instance=ExtResource("5_f2txt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 22)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, -1, 22)
 
 [node name="MobSpawner2" parent="." unique_id=1309560571 instance=ExtResource("5_f2txt")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -18, 0, -1)
@@ -104,7 +104,7 @@ collision_layer = 2
 size = Vector3(12, 100, 12)
 material = ExtResource("2_oi3di")
 
-[node name="Big5" type="CSGBox3D" parent="Platforms/Big1" unique_id=266061509]
+[node name="Hole" type="CSGBox3D" parent="Platforms/Big1" unique_id=266061509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 36, 0)
 operation = 2
 use_collision = true
@@ -120,17 +120,17 @@ size = Vector3(6, 100, 8)
 material = ExtResource("2_oi3di")
 
 [node name="Big3" type="CSGBox3D" parent="Platforms" unique_id=408024177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, -50, 21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, -49, 21)
 use_collision = true
 collision_layer = 2
-size = Vector3(11, 100, 8)
+size = Vector3(11, 102, 8)
 material = ExtResource("2_oi3di")
 
 [node name="Big4" type="CSGBox3D" parent="Platforms" unique_id=23697446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -50, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -50.5, 23)
 use_collision = true
 collision_layer = 2
-size = Vector3(7, 100, 7)
+size = Vector3(7, 99, 7)
 material = ExtResource("2_oi3di")
 
 [node name="Pillar1" type="CSGBox3D" parent="Platforms" unique_id=988528483]
@@ -141,10 +141,10 @@ size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Pillar2" type="CSGBox3D" parent="Platforms" unique_id=521603640]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -50, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -49.5, 13)
 use_collision = true
 collision_layer = 2
-size = Vector3(3, 100, 3)
+size = Vector3(3, 101, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Pillar3" type="CSGBox3D" parent="Platforms" unique_id=1479985297]
@@ -155,14 +155,14 @@ size = Vector3(3, 100, 3)
 material = ExtResource("2_oi3di")
 
 [node name="Floating1" type="CSGBox3D" parent="Platforms" unique_id=607548251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.5, 0)
 use_collision = true
 collision_layer = 2
 size = Vector3(5, 1, 5)
 material = ExtResource("3_0b4ue")
 
 [node name="Floating2" type="CSGBox3D" parent="Platforms" unique_id=1410542792]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -0.5, 10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, 10.5)
 use_collision = true
 collision_layer = 2
 size = Vector3(2, 1, 8)

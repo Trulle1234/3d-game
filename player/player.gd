@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var marker: Marker3D = $Camera3D/Marker3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area3D = $Hitbox
 @onready var damage_timer: Timer = $DamageTimer
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -12,7 +13,7 @@ const BULLET = preload("uid://bdddr4ndq3ada")
 
 const GRAVITY = 20
 const SPEED = 5.5
-const JUMP_STRENGTH = 8
+const JUMP_STRENGTH = 9
 
 var health = 20
 
@@ -63,6 +64,8 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	shoot_sound.pitch_scale = randf_range(0.9, 1.1)
 	shoot_sound.play()
+	
+	animation_player.play("shoot")
 	
 	var new_bullet = BULLET.instantiate()
 	marker.add_child(new_bullet)

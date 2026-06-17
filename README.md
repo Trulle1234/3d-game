@@ -23,3 +23,17 @@ git clone https://github.com/Trulle1234/3D-Shooter.git
 Then import the project in Godot.
 
 All set!
+
+---
+
+## Differences from the tutorial
+- Reowrked graphics with shaders
+- Health bar and player death
+- Code changed in multiple ways
+- Vertical movment of mobs added
+- Shooting animation
+- Custom Level
+
+---
+
+**_AI was used for small parts of the code_**
